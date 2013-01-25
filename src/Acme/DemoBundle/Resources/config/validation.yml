@@ -1,0 +1,7 @@
+Acme\DemoBundle\Entity\Demo:
+    properties:
+        firstName:
+            - Length:
+                min: 9
+                max: 9
+                exactMessage: "teste."

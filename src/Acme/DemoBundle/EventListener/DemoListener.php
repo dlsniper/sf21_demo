@@ -3,17 +3,27 @@
 namespace Acme\DemoBundle\EventListener;
 
 use Doctrine\Common\EventSubscriber;
+use Doctrine\ORM\Events;
+use Symfony\Bundle\FrameworkBundle\Templating\EngineInterface;
 
 class DemoListener implements EventSubscriber
 {
-    public function __construct()
+
+    protected $engine;
+
+    public function __construct(EngineInterface $engine)
     {
-        echo 'asdasd';
+        $this->engine = $engine;
     }
 
     public function getSubscribedEvents()
     {
-        return array('postPersist');
+        return array(Events::postLoad);
+    }
+
+    public function postLoad(LifecycleEventArgs $args)
+    {
+        echo 'asdasd';
     }
 
 }

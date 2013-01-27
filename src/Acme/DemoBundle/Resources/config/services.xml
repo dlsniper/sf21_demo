@@ -16,6 +16,7 @@
         </service>
 
         <service id="doctrine.demo2" class="Acme\DemoBundle\EventListener\DemoListener">
+            <argument type="service" id="templating" />
             <tag name="doctrine.event_subscriber" connection="default" event="postPersist" />
         </service>
     </services>
